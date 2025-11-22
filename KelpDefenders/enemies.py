@@ -2,7 +2,7 @@ from turtle import RawTurtle
 import random
 
 
-SPEED = 1.25
+SPEED = 1.35
 
 class Enemies:
     def __init__(self, screen, window):
@@ -14,7 +14,7 @@ class Enemies:
 
     def create_enemy(self, round):
         if self.spawned_count < round * 10:
-            dice = random.randint(1,18)
+            dice = random.randint(1,25)
             if dice == 2 or dice == 3:
                 new_enemy = RawTurtle(self.screen)
                 new_enemy.shape("turtle")
