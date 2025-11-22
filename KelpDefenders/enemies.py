@@ -14,7 +14,7 @@ class Enemies:
 
     def create_enemy(self, round):
         if self.spawned_count < round * 10:
-            dice = random.randint(1,25)
+            dice = random.randint(1,30)
             if dice == 2 or dice == 3:
                 new_enemy = RawTurtle(self.screen)
                 new_enemy.shape("turtle")
@@ -42,5 +42,6 @@ class Enemies:
         self.enemy_list.remove(enemy)
         enemy.hideturtle()
         enemy.clear()
+
 
 
