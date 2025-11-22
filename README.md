@@ -1,4 +1,4 @@
-**How to Play**
+**How to Play:**
 Click "Start" to begin the game
 Use Up/Down arrow keys to move the player (green turtle)
 Press Space to shoot bullets at enemies (red turtles)
@@ -7,14 +7,14 @@ Click "Upgrade" button to improve bullet spread (costs money)
 At level 3+, use the "Bomb" feature by clicking on the screen
 Survive waves of increasingly difficult enemies!
 
-**Game Mechanics**
+**Game Mechanics:**
 Each level has 10x enemies (Level 1 = 10 enemies, Level 2 = 20, etc.)
 Enemies move faster as levels progress
 Players get 15 bullets per level
 Upgrades add diagonal shooting patterns
 Game ends if any enemy reaches the player's position
 
-**Dependencies**
+**Dependencies:**
 Python 3.11+
 tkinter (included with Python)
 turtle graphics (included with Python)
