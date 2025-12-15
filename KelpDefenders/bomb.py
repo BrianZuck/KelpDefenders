@@ -32,3 +32,7 @@ class Bomb:
         each.hideturtle()
         each.clear()
 
+    def bomb_reset(self):
+        for shrapnel in self.shrapnels[:]:
+            self.removeshrapnel(shrapnel)
+        self.detonate = True
