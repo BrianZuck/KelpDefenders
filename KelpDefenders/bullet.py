@@ -61,7 +61,7 @@ class Bullet:
 
     def update_counter(self):
         self.counter_turtle.clear()  # clear old text
-        self.counter_turtle.goto(-265, 232)
+        self.counter_turtle.goto(-260, 232)
         self.counter_turtle.write(f"Bullets remaining: {self.maxbullets}", align="left", font=FONT)
 
     def bullet_upgrade_press(self, scoreboard):
