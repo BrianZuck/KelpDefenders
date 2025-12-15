@@ -4,21 +4,23 @@ from Player import Player
 from enemies import Enemies
 from bullet import Bullet
 from kelp import Kelp
+from balloon import Balloon
 from bomb import Bomb
 from scoreboard import Scoreboard
-import time
 
 
-## GET BOMB TO WORK WITH BUTTON
+
 def start_game():
-    global gaming, player, enemy, bullet, scoreboard, bomb
+    global gaming, player, enemy, bullet, scoreboard, bomb, balloon, instruction_label
     gaming = True
+    canvas.delete(instruction_label)
     start_button.grid_remove()
     kelp = Kelp(screen)
     bomb = Bomb(screen)
     player = Player(screen)
     enemy = Enemies(screen, window)
     bullet = Bullet(screen)
+    balloon = Balloon(screen)
     scoreboard = Scoreboard(screen)
     bullet.max_bullet_count(scoreboard.level)
     screen.listen()
@@ -32,7 +34,21 @@ def bombing():
     screen.onclick(lambda x, y: bomb.bomb_move(x, y, bomb_button))
     bomb_button.grid_remove()
 
+def reset_game():
+    global gaming
+    gaming = True
+    reset_button.grid_remove()
+    bomb.bomb_reset()
+    enemy.enemy_reset()
+    scoreboard.score_reset()
+    bullet.bullet_reset()
+    balloon.balloon_reset()
+    player.gotostart()
+    screen.update()
+    window.after(20, game_loop)
+
 window = Tk()
+window.title("Kelp Defenders")
 window.config(padx=150, pady=50, bg = '#ADD8E6')
 
 canvas = Canvas(window, width=600, height=600, bg = '#ADD8E6', highlightthickness=2, highlightbackground='#000000')
@@ -52,6 +68,15 @@ start_button = Button(
 )
 
 start_button.grid(column=1, row=1, padx=10, pady=10)
+
+reset_button = Button(
+    text="Reset",
+    command= reset_game,
+    width=10,
+    height=3,
+    font=("Courier", 12, "bold")
+)
+
 
 exit_button = Button(
     text="Exit",
@@ -85,6 +110,14 @@ title_label = Label(window, text="Kelp Defenders", font=("Courier", 25, "bold un
 title_label.grid(column=1, row=0, columnspan=2)
 
 
+instruction_label = canvas.create_text(0, 0,
+    text="     Use ↑ ↓ to move | Space to shoot\n "
+         "Look out for the Upgrade button at the top \n"
+         " On Round 3, you get a bomb at the bottom!",
+    fill="black",
+    font=("Courier", 16, "bold")
+)
+
 #### GAME CODE ####
 
 gaming = False
@@ -97,7 +130,7 @@ def game_loop():
     else:
         upgrade_button.grid_remove()
 
-    if scoreboard.level >= 3 and bomb.detonate:
+    if scoreboard.level == 3 and bomb.detonate:
         bomb_button.grid(column=2, row=3)
 
     if not bomb.detonate:
@@ -112,7 +145,9 @@ def game_loop():
     for e in enemy.enemy_list[:]:
         if int(e.xcor()) < int(player.xcor()):
             scoreboard.game_over()
+            upgrade_button.grid_remove()
             gaming = False
+            reset_button.grid(column=1, row=1, padx=10, pady=10)
             return
 
         for b in bullet.bullets[:]:
@@ -138,6 +173,17 @@ def game_loop():
         bullet.max_bullet_count(scoreboard.level, remaining_bullet)
 
     player.bounds()
+
+    if scoreboard.level > 3:
+        bomb_button.grid_remove()
+        bullet.bullet_reset()
+        screen.update()
+        scoreboard.winner()
+        balloon.show_balloons()
+        upgrade_button.grid_remove()
+        gaming = False
+        reset_button.grid(column=1, row=1, padx=10, pady=10)
+        return
 
     if gaming:
         window.after(16, game_loop)
