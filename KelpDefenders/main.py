@@ -9,7 +9,6 @@ from bomb import Bomb
 from scoreboard import Scoreboard
 
 
-
 def start_game():
     global gaming, player, enemy, bullet, scoreboard, bomb, balloon, instruction_label
     gaming = True
@@ -28,7 +27,6 @@ def start_game():
     screen.onkey(player.go_down, "Down")
     screen.onkey(lambda: bullet.shoot(player, gaming), "space")
     window.after(20, game_loop)
-
 
 def bombing():
     screen.onclick(lambda x, y: bomb.bomb_move(x, y, bomb_button))
@@ -58,7 +56,6 @@ screen = TurtleScreen(canvas)
 screen.tracer(0)
 screen.bgcolor('#ADD8E6')
 
-
 start_button = Button(
     text="Start",
     command= start_game,
@@ -77,7 +74,6 @@ reset_button = Button(
     font=("Courier", 12, "bold")
 )
 
-
 exit_button = Button(
     text="Exit",
     command=window.destroy,
@@ -86,7 +82,6 @@ exit_button = Button(
     font=("Courier", 12, "bold")
 )
 exit_button.grid(column=2, row=1, padx=10, pady=10)
-
 
 upgrade_button = Button(
     text="Upgrade",
@@ -104,11 +99,8 @@ bomb_button = Button(
     font=("Courier", 12, "bold")
 )
 
-
-
 title_label = Label(window, text="Kelp Defenders", font=("Courier", 25, "bold underline"), fg="#5CDA5C", bg = '#ADD8E6')
 title_label.grid(column=1, row=0, columnspan=2)
-
 
 instruction_label = canvas.create_text(0, 0,
     text="Use ↑ ↓ to Move | Space to Shoot\n"
@@ -118,7 +110,7 @@ instruction_label = canvas.create_text(0, 0,
     font=("Courier", 14, "bold")
 )
 
-#### GAME CODE ####
+####################### GAME CODE | GAME CODE | GAME CODE | GAME CODE #######################
 
 gaming = False
 
