@@ -15,7 +15,6 @@ class Scoreboard(RawTurtle):
         self.killcount = 0
         self.update_scoreboard()
 
-
     def update_scoreboard(self):
         self.clear()
         self.write(f"Level: {self.level} Bank: {self.money} Kills: {self.killcount}", align="left", font=FONT)
@@ -35,4 +34,15 @@ class Scoreboard(RawTurtle):
 
     def increase_kill(self):
         self.killcount += 1
+        self.update_scoreboard()
+
+    def winner(self):
+        self.goto(0, 0)
+        self.write(f"YOU WIN!", align="center", font=FONT)
+
+    def score_reset(self):
+        self.level = 1
+        self.money = 0
+        self.killcount = 0
+        self.goto(-265, 250)
         self.update_scoreboard()
