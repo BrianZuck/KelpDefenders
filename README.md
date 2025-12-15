@@ -4,7 +4,7 @@ Use Up/Down arrow keys to move the player (green turtle).
 Press Space to shoot bullets at enemies (red turtles).
 Earn money by defeating enemies.
 Click "Upgrade" button to improve bullet spread (costs money).
-At level 3+, use the "Bomb" feature by clicking on the screen.
+At level 3, use the "Bomb" feature by clicking on the screen.
 Survive waves of increasingly difficult enemies!
 
 
