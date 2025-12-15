@@ -111,11 +111,11 @@ title_label.grid(column=1, row=0, columnspan=2)
 
 
 instruction_label = canvas.create_text(0, 0,
-    text="     Use ↑ ↓ to move | Space to shoot\n "
-         "Look out for the Upgrade button at the top \n"
-         " On Round 3, you get a bomb at the bottom!",
-    fill="black",
-    font=("Courier", 16, "bold")
+    text="Use ↑ ↓ to Move | Space to Shoot\n"
+         "   Upgrade appears at the top\n"
+         "    Bomb unlocked in Round 3",
+    fill="#1f3a4d",
+    font=("Courier", 14, "bold")
 )
 
 #### GAME CODE ####
