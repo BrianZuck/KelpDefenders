@@ -10,7 +10,7 @@ class Scoreboard(RawTurtle):
         self.level = 1
         self.hideturtle()
         self.penup()
-        self.goto(-265, 250)
+        self.goto(-260, 250)
         self.money = 0
         self.killcount = 0
         self.update_scoreboard()
