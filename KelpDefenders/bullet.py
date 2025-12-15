@@ -14,7 +14,7 @@ class Bullet:
         self.counter_turtle = RawTurtle(self.screen)
         self.counter_turtle.hideturtle()
         self.counter_turtle.penup()
-        self.cost = 500
+        self.cost = 350
 
     def shoot(self, player, gaming):
         if not gaming:
@@ -54,9 +54,10 @@ class Bullet:
         self.update_counter()
 
     def remove_bullet(self,bullet):
-        self.bullets.remove(bullet)
         bullet.hideturtle()
         bullet.clear()
+        self.bullets.remove(bullet)
+
 
     def update_counter(self):
         self.counter_turtle.clear()  # clear old text
@@ -68,3 +69,10 @@ class Bullet:
             self.upgrades += 1
             scoreboard.money -= self.cost
             scoreboard.update_scoreboard()
+
+    def bullet_reset(self):
+        for bullet in self.bullets[:]:
+            self.remove_bullet(bullet)
+        self.maxbullets = 15
+        self.upgrades = 1
+        self.update_counter()
