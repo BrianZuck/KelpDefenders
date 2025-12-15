@@ -2,7 +2,7 @@ from turtle import RawTurtle
 import random
 
 
-SPEED = 0.75
+SPEED = 0.8
 
 class Enemies:
     def __init__(self, screen, window):
