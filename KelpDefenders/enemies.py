@@ -45,9 +45,10 @@ class Enemies:
 
 
     def enemy_reset(self):
-        self.move_speed = 1.35
+        self.move_speed = SPEED
         for enemy in self.enemy_list[:]:
             self.remove_enemy(enemy)
 
         self.enemy_list.clear()
         self.spawned_count = 0
+
