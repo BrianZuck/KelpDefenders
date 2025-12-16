@@ -2,10 +2,10 @@ from tkinter import *
 from turtle import TurtleScreen
 from Player import Player
 from enemies import Enemies
-from bullet import Bullet
+from eggs import Bullet
 from kelp import Kelp
 from balloon import Balloon
-from bomb import Bomb
+from shell_blast import Bomb
 from scoreboard import Scoreboard
 
 
@@ -92,7 +92,7 @@ upgrade_button = Button(
 )
 
 bomb_button = Button(
-    text="Bomb",
+    text="Shell Burst",
     command= bombing,
     width=10,
     height=3,
@@ -104,8 +104,8 @@ title_label.grid(column=1, row=0, columnspan=2)
 
 instruction_label = canvas.create_text(0, 0,
     text="Use ↑ ↓ to Move | Space to Shoot\n"
-         "   Upgrade appears at the top\n"
-         "    Bomb unlocked in Round 3",
+         "   Upgrades appear at the top\n"
+         "Shell Blast unlocked in Round 3",
     fill="#1f3a4d",
     font=("Courier", 14, "bold")
 )
