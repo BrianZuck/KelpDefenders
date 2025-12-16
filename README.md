@@ -8,6 +8,9 @@ At level 3, use the "Shell Blast" feature by clicking on the "Shell Blast" butto
 Survive waves of increasingly difficult enemies!
 
 
+
+
+
 **Game Mechanics:**
 Each level has 10x enemies (Level 1 = 10 enemies, Level 2 = 20, etc.).
 Enemies move faster as levels progress.
