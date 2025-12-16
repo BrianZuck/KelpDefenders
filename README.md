@@ -5,7 +5,7 @@ Press Space to shoot eggs at enemies (red turtles).
 Earn money by defeating enemies.
 Click the "Upgrade" button to add another egg blaster (costs money).
 At level 3, use the "Shell Blast" feature by clicking on the "Shell Blast" button, and then click anywhere screen.
-Survive waves of increasingly difficult enemies! /n
+Survive waves of increasingly difficult enemies! \n
 
 
 
